@@ -1,0 +1,7 @@
+streamlit
+langchain
+requests
+Python-IO
+Pillow
+pytrends
+
