@@ -1,5 +1,6 @@
 streamlit
 langchain
+google-generativeai
 requests
 Python-IO
 Pillow
