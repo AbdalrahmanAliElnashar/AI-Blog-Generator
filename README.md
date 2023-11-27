@@ -42,8 +42,8 @@ Enter your Google API key in the sidebar of the app.
 - **Pillow:** Required for working with images in the Python Imaging Library (PIL).
 - **pytrends:** Enables fetching Google Trends data for SEO keyword optimization.
 
-  ## Acknowledgments
 
+## Acknowledgments
 - **Hugging Face:** Provides the API for the 3D Render Style XL model used in image generation.
 - **Google Makersuite:** Offers the Google Palm Language Model for text generation.
 
