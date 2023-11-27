@@ -32,3 +32,19 @@ Run the app using the following command:
 streamlit run app.py
 ```
 Enter your Google API key in the sidebar of the app.
+
+
+## Dependencies
+
+- **streamlit:** The main framework for building the app's user interface.
+- **langchain:** A package for language models, including the Google Palm Language Model.
+- **requests:** Used for making HTTP requests to external APIs.
+- **Pillow:** Required for working with images in the Python Imaging Library (PIL).
+- **pytrends:** Enables fetching Google Trends data for SEO keyword optimization.
+
+  ## Acknowledgments
+
+- **Hugging Face:** Provides the API for the 3D Render Style XL model used in image generation.
+- **Google Makersuite:** Offers the Google Palm Language Model for text generation.
+
+
