@@ -15,3 +15,21 @@ Additionally, BlogGen takes your blog posts to the next level by incorporating v
 - **Image Generation with 3D Render Style XL:** Elevate the visual appeal of your blog posts with striking images created using the cutting-edge 3D Render Style XL model.
 
 - **Streamlit Interface:** Enjoy a seamless and intuitive user experience with the Streamlit interface, making it easy to generate and customize your blog posts.
+
+
+## Usage
+### Getting Started
+Install the required Python packages by running:
+
+``` bash
+pip install streamlit langchain requests pillow pytrends
+```
+Make sure to have a valid Google API key for the Google Palm Language Model. You can obtain one here.
+
+Run the app using the following command:
+
+``` bash
+Copy code
+streamlit run app.py
+```
+Enter your Google API key in the sidebar of the app.
