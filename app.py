@@ -72,10 +72,23 @@ def get_seo_keywords(topic, timeframe='today 5-y', geo='US'):
 st.set_page_config(page_title='📝 AI Text and Image Generation', page_icon='📝', layout='wide', initial_sidebar_state='auto')
 
 
+# Title
 st.sidebar.title('📝 AI Blog Writer')
+
+
+
+# Sidebar
 st.sidebar.write('This app generates a blog post about a topic of your choice. The app generates the blog post using the Google Palm Language Model. The text generated using SEO Keywords Optimization .The app also generates images using the 3D Render Style XL model. The app is powered by Hugging Face and Streamlit.')
+st.sidebar.caption('Made by [Abdalrahman Ali Elnashar](https://www.linkedin.com/in/abdalrahman-ali-el-nashar)')
+st.sidebar.divider()
+palm_api_key = st.sidebar.text_input('Enter your Google API Key:', key='PaLM_api_key', type='password')
+st.sidebar.link_button('Get Google PaLM API key', url='https://makersuite.google.com/app/apikey')
+
+#st.sidebar.write("[Get Google PaLM API key](https://makersuite.google.com/app/apikey)")
 
 
+
+# Main Page
 col1, col2, col3 = st.columns((1, 3, 1), gap='large')
 with col2:
 
@@ -85,8 +98,14 @@ with col2:
         st.header('What is the topic of your blog post?')
         topic_text = st.text_input('Topic:', placeholder='Example: Generative AI')
         submitted = st.form_submit_button('Submit')
+    
 
     if submitted:
+        if not palm_api_key:
+            st.error('Please enter your Google API key in the sidebar.')
+            st.stop()
+        
+
         st.write('Generating blog post about', topic_text, '...')
         st.write('This may take a few minutes.')
 
