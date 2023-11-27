@@ -14,10 +14,4 @@ Additionally, BlogGen takes your blog posts to the next level by incorporating v
 
 - **Image Generation with 3D Render Style XL:** Elevate the visual appeal of your blog posts with striking images created using the cutting-edge 3D Render Style XL model.
 
-- **User-Friendly Streamlit Interface:** Enjoy a seamless and intuitive user experience with the Streamlit interface, making it easy to generate and customize your blog posts.
-
-- Key Features
-- **Text Generation:** Utilizes the Google Palm Language Model (PaLM) to generate a blog post based on user input.
-- **Image Generation:** Employs the 3D Render Style XL model through the Hugging Face API to create images related to the generated content.
-- **SEO Optimization:** Integrates SEO keywords into the generated blog post to enhance search engine visibility.
-- **Streamlit Interface:** Provides a user-friendly interface powered by Streamlit for easy interaction.
+- **Streamlit Interface:** Enjoy a seamless and intuitive user experience with the Streamlit interface, making it easy to generate and customize your blog posts.
