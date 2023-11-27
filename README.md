@@ -5,6 +5,8 @@ BlogGen is a powerful and versatile application that simplifies the process of c
 
 Additionally, BlogGen takes your blog posts to the next level by incorporating visually appealing images created with the state-of-the-art 3D Render Style XL model. This ensures that your content not only captivates readers with compelling text but also visually entices them with stunning graphics.
 
+## Demp App
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-blog-generator.streamlit.app/)
 
 
 ## Key Features
