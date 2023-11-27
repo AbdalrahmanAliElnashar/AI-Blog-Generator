@@ -1,1 +1,1 @@
-# AI-Blog-Generator
+# 🦜🔗 BlogGen App
