@@ -31,7 +31,11 @@ Run the app using the following command:
 ``` bash
 streamlit run app.py
 ```
-Enter your Google API key in the sidebar of the app.
+
+## Sidebar Configuration
+Enter your Google API key in the sidebar to unlock the full potential of the Google Palm Language Model.
+
+Need an API key? [Get Google PaLM API key.](https://makersuite.google.com/app/apikey)
 
 
 ## Dependencies
