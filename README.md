@@ -24,12 +24,11 @@ Install the required Python packages by running:
 ``` bash
 pip install streamlit langchain requests pillow pytrends
 ```
-Make sure to have a valid Google API key for the Google Palm Language Model. You can obtain one here.
+Make sure to have a valid Google API key for the Google Palm Language Model. You can obtain one ('https://makersuite.google.com/app/apikey').
 
 Run the app using the following command:
 
 ``` bash
-Copy code
 streamlit run app.py
 ```
 Enter your Google API key in the sidebar of the app.
