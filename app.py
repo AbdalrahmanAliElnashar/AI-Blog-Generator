@@ -6,7 +6,7 @@ import io
 from PIL import Image
 from pytrends.request import TrendReq
 
-
+# AIzaSyDnA2sHb-KnieA-7l24NVfuQuRe9xg6SrA
 # Split content into sections
 def divide_content(content):
     # Split the content into sections based on the specified headers
@@ -105,72 +105,93 @@ with col2:
             st.error('Please enter your Google API key in the sidebar.')
             st.stop()
         
-
-        st.write('Generating blog post about', topic_text, '...')
-        st.write('This may take a few minutes.')
-
-        # SEO Keywords
-        topic_query = topic_text
         try:
-            seo_keywords = get_seo_keywords(topic_query)
-        except:
-            seo_keywords = ["No keywords found"]
+            st.write('Generating blog post about', topic_text, '...')
+            st.write('This may take a few minutes.')
 
-
-        # LLMS
-        palm = GooglePalm(google_api_key='AIzaSyDnA2sHb-KnieA-7l24NVfuQuRe9xg6SrA', temperature=0.6)
-
-        # PromptTemplate
-        PT_topic = PromptTemplate(
-            template="Generate a blog post about {topic}. The blog format must contain the following sections: Title, Abstract, Introduction, History, Content, Conclusion, References, and Further Reading. Each section must start with '##'. \
-            the blog post should be SEO optimized for the following keywords: {seo_keywords}.",
-            input_variables= ['topic'])
-
-        prompt = PT_topic.format(topic=topic_text, seo_keywords=seo_keywords)
-
-        # Palm
-        result = palm(prompt)
-        blog = divide_content(result)
-        
-        # -------------------------------------
-
-        # Streamlit Display
-
-        # Title
-        title = None
-        for line in result.splitlines():
-            if line.startswith("## Title"):
-                title = line[10:]
-                if len(title) == 0:
-                    title = topic_text + " Blog Post"
-                else:
-                    pass
-        st.header(title)
-
-        # Abstract
-        st.write(blog['Abstract'])
-        try:
-            image_prompt = blog['Abstract'].splitlines()[1]
-        except:
-            image_prompt = blog['Abstract'].splitlines()[0]
-        image_bytes = query({
-        	"inputs": image_prompt,
-            })
-        image = Image.open(io.BytesIO(image_bytes))
-        st.image(image=image, use_column_width=True)
-        st.divider()
-       
-        # Introduction
-        col1, col2 = st.columns(2, gap='medium')
-        with col1:
-            st.header('Introduction')
-            st.subheader(blog['Introduction'])
-
-        with col2:
+            # SEO Keywords
+            topic_query = topic_text
             try:
-                image_prompt = blog['Introduction'].splitlines()[1]
+                seo_keywords = get_seo_keywords(topic_query)
             except:
-                image_prompt = blog['Introduction'].splitlines()[0]
+                seo_keywords = ["No keywords found"]
+
+
+            # LLMS
+            palm = GooglePalm(google_api_key='AIzaSyDnA2sHb-KnieA-7l24NVfuQuRe9xg6SrA', temperature=0.6)
+
+            # PromptTemplate
+            PT_topic = PromptTemplate(
+                template="Generate a blog post about {topic}. The blog format must contain the following sections: Title, Abstract, Introduction, History, Content, Conclusion, References, and Further Reading. Each section must start with '##'.\
+                Expand the content of the Abstract and Introduction \
+                the number of words of Introduction section should be about 100 words. \
+                the blog post should be SEO optimized for the following keywords: {seo_keywords}.",
+                input_variables= ['topic'])
+
+            prompt = PT_topic.format(topic=topic_text, seo_keywords=seo_keywords)
+
+            # Palm
+            result = palm(prompt)
+            blog = divide_content(result)
+            
+            # -------------------------------------
+
+            # Streamlit Display
+
+            # Title
+            title = None
+            for line in result.splitlines():
+                if line.startswith("## Title"):
+                    title = line[10:]
+                    if len(title) == 0:
+                        title = topic_text + " Blog Post"
+                    else:
+                        pass
+            st.header(title)
+
+            # Abstract
+            st.write(blog['Abstract'])
+            try:
+                image_prompt = blog['Abstract'].splitlines()[1]
+            except:
+                image_prompt = blog['Abstract'].splitlines()[0]
+            image_bytes = query({
+                "inputs": image_prompt,
+                })
+            image = Image.open(io.BytesIO(image_bytes))
+            st.image(image=image, use_column_width=True)
+            st.divider()
+        
+            # Introduction
+            col1, col2 = st.columns(2, gap='medium')
+            with col1:
+                st.header('Introduction')
+                st.write(blog['Introduction'])
+                
+
+            with col2:
+                try:
+                    image_prompt = blog['Introduction'].splitlines()[1]
+                except:
+                    image_prompt = blog['Introduction'].splitlines()[0]
+                
+                image_bytes = query({
+                    "inputs": image_prompt,
+                })
+                image = Image.open(io.BytesIO(image_bytes))
+                st.image(image=image, use_column_width=True)
+                
+            # History
+            st.header('History')
+            st.write(blog['History'])
+
+            # Content
+            st.header('Main Content')            
+            st.write(blog['Content'])
+            try:
+                image_prompt = blog['Content'].splitlines()[1]
+            except:
+                image_prompt = blog['Content'].splitlines()[0]
             
             image_bytes = query({
                 "inputs": image_prompt,
@@ -178,35 +199,20 @@ with col2:
             image = Image.open(io.BytesIO(image_bytes))
             st.image(image=image, use_column_width=True)
             
-        # History
-        st.header('History')
-        st.write(blog['History'])
+                
+            # Conclusion
+            st.header('Conclusion')
+            st.write(blog['Conclusion'])
 
-        # Content
-        st.header('Main Content')            
-        st.write(blog['Content'])
-        try:
-            image_prompt = blog['Content'].splitlines()[1]
+            # References
+            st.header('References')
+            st.write(blog['References'])
+
+            # Further Reading
+            st.header('Further Reading')
+            st.write(blog['Further Reading'])
+        
         except:
-            image_prompt = blog['Content'].splitlines()[0]
-        
-        image_bytes = query({
-        	"inputs": image_prompt,
-        })
-        image = Image.open(io.BytesIO(image_bytes))
-        st.image(image=image, use_column_width=True)
-        
-            
-        # Conclusion
-        st.header('Conclusion')
-        st.write(blog['Conclusion'])
-
-        # References
-        st.header('References')
-        st.write(blog['References'])
-
-        # Further Reading
-        st.header('Further Reading')
-        st.write(blog['Further Reading'])
-        
+            st.error('Something went wrong. Please try again.')
+            st.stop()
 # End of App
