@@ -163,11 +163,23 @@ with col2:
             st.divider()
         
             # Introduction
+            intro = blog['Introduction'].split('\n\n')
             col1, col2 = st.columns(2, gap='medium')
             with col1:
                 st.header('Introduction')
-                st.write(blog['Introduction'])
-                
+                if len(intro) == 1:
+                    st.write(intro[0])
+                elif len(intro) == 2:
+                    st.write(intro[0])
+                    st.write(intro[1])
+                elif len(intro) == 3:
+                    st.write(intro[0])
+                    st.write(intro[1])
+                    st.write(intro[2])
+                else:
+                    st.write(intro[0])
+                    st.write(intro[1])
+                    st.write(intro[2])        
 
             with col2:
                 try:
