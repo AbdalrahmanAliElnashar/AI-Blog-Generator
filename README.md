@@ -1,9 +1,11 @@
 # 🦜🔗 BlogGen App
 
 ## Overview
-BlogGen is a powerful and versatile application that simplifies the process of creating engaging blog posts. Leveraging the Google Palm Language Model, this app generates high-quality text content for a given topic while ensuring Search Engine Optimization (SEO) by integrating keyword optimization techniques.
+BlogGen is a powerful and versatile application that simplifies the process of creating engaging blog posts. Leveraging AI Text Generation, this app generates high-quality text content for a given topic while ensuring Search Engine Optimization (SEO) by integrating keyword optimization techniques.
 
-Additionally, BlogGen takes your blog posts to the next level by incorporating visually appealing images created with the state-of-the-art 3D Render Style XL model. This ensures that your content not only captivates readers with compelling text but also visually entices them with stunning graphics.
+Additionally, BlogGen takes your blog posts to the next level by incorporating visually appealing images created with the state-of-the-art AI Image Generation. This ensures that your content not only captivates readers with compelling text but also visually entices them with stunning graphics.
+
+To enhance the user experience, BlogGen is seamlessly powered by Streamlit, a robust framework known for its friendly and intuitive user interface. With Streamlit, navigating through the application becomes a breeze, allowing users to effortlessly customize and generate blog content with just a few clicks. The combination of BlogGen's powerful content creation capabilities and Streamlit's user-friendly interface makes crafting compelling blog posts an enjoyable and efficient experience for both seasoned bloggers and newcomers alike.
 
 ## Demp App
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-blog-generator.streamlit.app/)
